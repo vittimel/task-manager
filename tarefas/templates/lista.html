@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Suas tarefas</h1>
+
+<div class="resumo">
+  <div class="card-resumo"><strong>{{ total }}</strong><span>Total</span></div>
+  <div class="card-resumo"><strong>{{ pendentes }}</strong><span>Pendentes</span></div>
+  <div class="card-resumo"><strong>{{ concluidas }}</strong><span>Concluídas</span></div>
+</div>
+
+<nav class="filtros">
+  <a href="?status=todas" class="{% if status != 'concluidas' and status != 'pendentes' %}ativo{% endif %}">Todas</a>
+  <a href="?status=pendentes" class="{% if status == 'pendentes' %}ativo{% endif %}">Pendentes</a>
+  <a href="?status=concluidas" class="{% if status == 'concluidas' %}ativo{% endif %}">Concluídas</a>
+</nav>
+
+<ul class="lista">
+{% for tarefa in tarefas %}
+  <li class="tarefa {% if tarefa.concluida %}concluida{% endif %}">
+    <div class="tarefa-info">
+      <a class="titulo" href="{% url 'detalhe_tarefa' tarefa.pk %}">{{ tarefa.titulo }}</a>
+      <span class="selo {{ tarefa.prioridade }}">{{ tarefa.get_prioridade_display }}</span>
+    </div>
+    <a class="botao-pequeno" href="{% url 'alternar' tarefa.pk %}">
+      {% if tarefa.concluida %}Reabrir{% else %}Concluir{% endif %}
+    </a>
+  </li>
+{% empty %}
+  <li class="vazio">Nenhuma tarefa por aqui. Que tal criar a primeira?</li>
+{% endfor %}
+</ul>
+{% endblock %}

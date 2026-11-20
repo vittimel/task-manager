@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="painel">
+  <h1>Excluir tarefa</h1>
+  <p>Tem certeza que quer excluir "{{ tarefa.titulo }}"? Isso não pode ser desfeito.</p>
+  <form method="post" class="acoes">
+    {% csrf_token %}
+    <button type="submit" class="botao-perigo">Sim, excluir</button>
+    <a class="botao-pequeno" href="{% url 'detalhe_tarefa' tarefa.pk %}">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

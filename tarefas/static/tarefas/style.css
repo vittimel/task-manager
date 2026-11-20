@@ -1,0 +1,138 @@
+:root {
+  --fundo: #f4f6fa;
+  --card: #ffffff;
+  --texto: #1f2937;
+  --suave: #6b7280;
+  --azul: #2f6fed;
+  --vermelho: #e5484d;
+  --amarelo: #f5a623;
+  --verde: #30a46c;
+  --borda: #e5e7eb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--borda);
+}
+.logo { font-weight: 700; font-size: 1.15rem; color: var(--azul); text-decoration: none; }
+
+.container { max-width: 720px; margin: 28px auto; padding: 0 16px; }
+h1 { margin: 0 0 16px; font-size: 1.6rem; }
+
+/* botões */
+.botao, .botao-pequeno, .botao-perigo, button {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 8px;
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.botao, button { background: var(--azul); color: #fff; }
+.botao-pequeno { background: #eef2ff; color: var(--azul); padding: 6px 12px; }
+.botao-perigo { background: var(--vermelho); color: #fff; }
+.botao:hover, button:hover, .botao-perigo:hover { opacity: .88; }
+.botao-pequeno:hover { background: #dde5ff; }
+
+/* resumo */
+.resumo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+.card-resumo {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+.card-resumo strong { display: block; font-size: 1.6rem; color: var(--azul); }
+.card-resumo span { color: var(--suave); font-size: .85rem; }
+
+/* filtros */
+.filtros { display: flex; gap: 8px; margin-bottom: 16px; }
+.filtros a {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  color: var(--suave);
+  text-decoration: none;
+  font-size: .9rem;
+}
+.filtros a.ativo { background: var(--azul); border-color: var(--azul); color: #fff; }
+
+/* lista */
+.lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.tarefa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.tarefa-info { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.titulo { color: var(--texto); font-weight: 600; text-decoration: none; }
+.titulo:hover { color: var(--azul); }
+.tarefa.concluida .titulo { text-decoration: line-through; color: var(--suave); }
+.tarefa.concluida { opacity: .75; }
+.vazio { text-align: center; color: var(--suave); padding: 28px; }
+
+/* selos de prioridade */
+.selo {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #fff;
+}
+.selo.alta { background: var(--vermelho); }
+.selo.media { background: var(--amarelo); }
+.selo.baixa { background: var(--verde); }
+
+/* painéis e formulário */
+.painel {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 14px;
+}
+.painel.concluida h1 { text-decoration: line-through; color: var(--suave); }
+.meta { color: var(--suave); font-size: .85rem; }
+.status { margin-left: 8px; color: var(--suave); }
+.acoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.voltar { color: var(--suave); text-decoration: none; }
+.voltar:hover { color: var(--azul); }
+
+.formulario p { display: grid; gap: 4px; margin: 0 0 14px; }
+.formulario label { font-weight: 600; font-size: .9rem; }
+.formulario input[type="text"], .formulario textarea, .formulario select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  font: inherit;
+}
+.formulario input:focus, .formulario textarea:focus, .formulario select:focus {
+  outline: 2px solid var(--azul);
+  border-color: transparent;
+}
+.formulario input[type="checkbox"] { width: auto; }

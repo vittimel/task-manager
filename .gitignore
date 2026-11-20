@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Banco de dados local e arquivos compactados
+db.sqlite3
+*.zip
+
+# Editor / sistema
+.vscode/
+.idea/
+.DS_Store

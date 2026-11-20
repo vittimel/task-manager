@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Lista de Tarefas{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'tarefas/style.css' %}">
+</head>
+<body>
+  <header class="topo">
+    <a class="logo" href="{% url 'lista_tarefas' %}">✔ Minhas Tarefas</a>
+    <a class="botao" href="{% url 'nova_tarefa' %}">+ Nova tarefa</a>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="painel">
+  <h1>Editar tarefa</h1>
+  <form method="post" class="formulario">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="botao">Salvar</button>
+  </form>
+</div>
+<p><a class="voltar" href="{% url 'detalhe_tarefa' tarefa.pk %}">← Cancelar</a></p>
+{% endblock %}
